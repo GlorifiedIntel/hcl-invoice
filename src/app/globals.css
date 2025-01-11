@@ -68,5 +68,16 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+    background-color: #001d37;
+    color: whitesmoke;
   }
+}
+
+.hapi-button {
+   width: 120px;
+   background-color: #60073a;
+}
+
+.hapi-button:hover {
+  background-color: darkgoldenrod;
 }

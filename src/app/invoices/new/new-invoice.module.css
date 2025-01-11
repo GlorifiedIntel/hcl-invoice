@@ -1,0 +1,6 @@
+
+
+.newinvoiceContainer {
+    @apply p-4 bg-white;
+    color: #444;
+  }
