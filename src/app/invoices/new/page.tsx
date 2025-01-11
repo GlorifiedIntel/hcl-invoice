@@ -1,5 +1,3 @@
-"use client";
-
 import { sql } from 'drizzle-orm';
 import { db } from '@/db';
 
@@ -24,19 +22,10 @@ export default async function NewInvoicePage() {
      
       <form className="grid gap-4 max-w-xs" action="">
         <div>
-          <Label
-            htmlFor="billingName"
-            className="block font-semibold text-sm mb-2"
-          >
+          <Label htmlFor="billingName" className="block font-semibold text-sm mb-2">
             Billing Name
           </Label>
-          <Input
-            id="billingName"
-            name="billingName"
-            type="text"
-            placeholder="Enter Customer's name"
-            required
-          />
+          <Input id="billingName" name="billingName" type="text" placeholder="Enter Customer's name" required/>
         </div>
 
         <div>
