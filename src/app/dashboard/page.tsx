@@ -13,8 +13,7 @@ import {
   } from "@/components/ui/table";
   import { Badge } from "@/components/ui/badge";
   import { Button } from "@/components/ui/button";
-  import styles from './page.module.css';
-import Link from 'next/link';
+  import Link from 'next/link';
 
   
 
@@ -24,7 +23,7 @@ export default async function DashboardPage() {
   console.log('results', results)
 
   return (
-    <div className={styles.dashboardContainer}>
+    <div className="dashboardContainer">
      <main className=" flex flex-col justify-center text-center max-w-5xl mx-auto my-12">
       <div className="flex justify-between">
       <h1 className="text-3xl font-bold text-left">

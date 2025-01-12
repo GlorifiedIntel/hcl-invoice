@@ -81,3 +81,8 @@ body {
 .hapi-button:hover {
   background-color: darkgoldenrod;
 }
+
+.dashboardContainer {
+  background-color: #fff;
+  color: #444;
+}
