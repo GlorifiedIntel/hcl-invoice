@@ -82,7 +82,10 @@ body {
   background-color: darkgoldenrod;
 }
 
-.dashboardContainer {
+.dashboardContainer,
+.newinvoiceContainer,
+.invoiceidContainer {
   background-color: #fff;
   color: #444;
+  padding: 50px;
 }

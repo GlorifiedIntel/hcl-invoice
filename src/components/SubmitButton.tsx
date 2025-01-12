@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
     const { pending } = useFormStatus();
     console.log('pending', pending);
   return (
-    <Button className=" relative w-full font-semibold">
+    <Button className=" relative w-6/12 font-semibold">
       <span className={pending ? 'text-transparent' : ''}>Submit</span>
       {pending && (
   <span className="absolute flex items-center justify-center h-full w-full text-gray-400">
