@@ -17,13 +17,14 @@ export async function createAction(formData: FormData) {
 
   const results = await db.insert(Invoices)
     .values({
-      amount,
-      description,
-      status: 'open', 
       billingName,
       billingAddress,
       billingEmail,
       phoneNumber,
+      amount,
+      description,
+      status: 'open'
+      
     })
     .returning({
       id: Invoices.id, 

@@ -68,53 +68,37 @@ export default async function DashboardPage() {
           {result.billingName}
         </Link>
       </TableCell>
-
       
       <TableCell className="text-left p-0">
-        <Link
-          href={`/invoices/${result.id}`}
-          className="font-semibold block p-4"
-        >
+        <Link href={`/invoices/${result.id}`} className="font-semibold block p-4">
           {result.billingAddress}
         </Link>
       </TableCell>
 
       
       <TableCell className="text-left p-0">
-        <Link
-          href={`/invoices/${result.id}`}
-          className="block p-4"
-        >
+        <Link href={`/invoices/${result.id}`} className="block p-4">
           {result.billingEmail}
         </Link>
       </TableCell>
 
       
       <TableCell className="text-left p-0">
-        <Link
-          href={`/invoices/${result.id}`}
-          className="font-semibold block p-4"
-        >
+        <Link href={`/invoices/${result.id}`} className="font-semibold block p-4">
           {result.phoneNumber}
         </Link>
       </TableCell>
 
       
       <TableCell className="text-center p-0">
-        <Link
-          href={`/invoices/${result.id}`}
-          className="block p-4"
-        >
+        <Link href={`/invoices/${result.id}`} className="block p-4">
           <Badge className="rounded-full">{result.status}</Badge>
         </Link>
       </TableCell>
 
      
       <TableCell className="text-right p-0">
-        <Link
-          href={`/invoices/${result.id}`}
-          className="font-semibold block p-4"
-        >
+        <Link href={`/invoices/${result.id}`} className="font-semibold block p-4">
           &#8358;{(result.amount / 100).toFixed(2)}
         </Link>
       </TableCell>
