@@ -11,6 +11,7 @@ import styles from './new-invoice.module.css';
 
 export default async function NewInvoicePage() {
   const results = await db.execute(sql`SELECT current_database()`)
+  console.log('results', results)
   return (
     <div className={styles.newinvoiceContainer}>
     <main className="flex flex-col justify-center h-full max-w-5xl mx-auto my-12">
