@@ -1,27 +1,35 @@
-import { sql } from 'drizzle-orm';
-import { db } from '@/db';
+"use client"
 
-
-import { Button } from "@/components/ui/button";
+import { SyntheticEvent, useState, startTransition } from "react";
+import Form from 'next/form'
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import styles from './new-invoice.module.css';
+import SubmitButton from "@/components/SubmitButton"
+
+import { createAction } from '@/app/actions';
 
 
-export default async function NewInvoicePage() {
-  const results = await db.execute(sql`SELECT current_database()`)
-  console.log('results', results)
-  return (
+export default function NewInvoicePage() {
+  const [state, setState] = useState('ready');
+
+  async function handleOnSubmit(event: SyntheticEvent) {
+    if (state === 'pending') {
+      event.preventDefault();
+      return;
+    }
+  setState('pending');
+  }
+  
+return (
     <div className={styles.newinvoiceContainer}>
     <main className="flex flex-col justify-center h-full max-w-5xl mx-auto my-12">
       <div className="flex justify-between">
         <h1 className="text-3xl font-bold text-left mb-5">Create Invoice</h1>
       </div>
 
-    {JSON.stringify(results)}
-     
-      <form className="grid gap-4 max-w-xs" action="">
+      <Form action={createAction} onSubmit={handleOnSubmit} className="grid gap-4 max-w-xs">
         <div>
           <Label htmlFor="billingName" className="block font-semibold text-sm mb-2">
             Billing Name
@@ -107,10 +115,8 @@ export default async function NewInvoicePage() {
           ></Textarea>
         </div>
 
-        <Button className="font-semibold" type="submit">
-          Submit
-        </Button>
-      </form>
+       <SubmitButton />
+      </Form>
     </main>
     </div>
   );
