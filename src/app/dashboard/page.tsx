@@ -14,6 +14,7 @@ import {
   import { Badge } from "@/components/ui/badge";
   import { Button } from "@/components/ui/button";
   import Link from 'next/link';
+  import { cn } from "@/lib/utils"
 
   
 
@@ -24,7 +25,7 @@ export default async function DashboardPage() {
 
   return (
     <div className="dashboardContainer">
-     <main className=" flex flex-col justify-center text-center max-w-5xl mx-auto my-12">
+     <main className=" flex flex-col justify-center h-full text-center gap-6 max-w-5xl mx-auto my-12">
       <div className="flex justify-between">
       <h1 className="text-3xl font-bold text-left">
         Invoices
@@ -92,7 +93,14 @@ export default async function DashboardPage() {
       
       <TableCell className="text-center p-0">
         <Link href={`/invoices/${result.id}`} className="block p-4">
-          <Badge className="rounded-full">{result.status}</Badge>
+          <Badge className={cn(
+                  "rounded-full capitalize",
+                  result.status === 'open' && 'bg-blue-500',
+                  result.status === 'paid' && 'bg-green-600',
+                  result.status === 'void' && 'bg-zinc-700',
+                  result.status === 'uncollectible' && 'bg-red-600'
+                  )}>{result.status}
+                </Badge>
         </Link>
       </TableCell>
 

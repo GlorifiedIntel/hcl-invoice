@@ -6,9 +6,8 @@ import { db } from '@/db';
 
 export async function createAction(formData: FormData) {
   // Parse the amount, removing non-numeric characters if necessary
-  const amountString = String(formData.get('amount'));
-  const amount = parseFloat(amountString.replace(/[^\d.-]/g, '')); 
-
+  const amount = parseFloat(String(formData.get('amount'))) * 100;
+ 
   const description = formData.get('description') as string;
   const billingName = formData.get('billingName') as string;
   const billingAddress = formData.get('billingAddress') as string;

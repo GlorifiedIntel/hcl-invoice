@@ -1,5 +1,5 @@
 {
-  "id": "fdf7ce60-a6f4-4a51-bd6b-61a352df8142",
+  "id": "4f2ae8d3-2a39-43e7-9547-3a6bd7bcd221",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -20,6 +20,30 @@
           "primaryKey": false,
           "notNull": true,
           "default": "now()"
+        },
+        "billingName": {
+          "name": "billingName",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "billingAddress": {
+          "name": "billingAddress",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "billingEmail": {
+          "name": "billingEmail",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "phoneNumber": {
+          "name": "phoneNumber",
+          "type": "varchar(11)",
+          "primaryKey": false,
+          "notNull": true
         },
         "amount": {
           "name": "amount",
