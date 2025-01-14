@@ -13,6 +13,8 @@ export async function createAction(formData: FormData) {
   const billingAddress = formData.get('billingAddress') as string;
   const billingEmail = formData.get('billingEmail') as string;
   const phoneNumber = formData.get('phoneNumber') as string;
+  const status = formData.get("status") as "open" | "paid" | "void" | "uncollectible";
+
 
   const results = await db.insert(Invoices)
     .values({
@@ -22,7 +24,7 @@ export async function createAction(formData: FormData) {
       phoneNumber,
       amount,
       description,
-      status: 'open'
+      status,
       
     })
     .returning({
