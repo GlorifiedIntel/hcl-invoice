@@ -1,13 +1,13 @@
 "use server";
 
 import { redirect } from 'next/navigation';
-import { Invoices } from '@/db/schema';
 import { db } from '@/db';
+import { Invoices } from '@/db/schema';
+
 
 export async function createAction(formData: FormData) {
   // Parse the amount, removing non-numeric characters if necessary
   const amount = parseFloat(String(formData.get('amount'))) * 100;
- 
   const description = formData.get('description') as string;
   const billingName = formData.get('billingName') as string;
   const billingAddress = formData.get('billingAddress') as string;
