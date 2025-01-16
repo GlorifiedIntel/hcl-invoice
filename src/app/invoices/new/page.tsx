@@ -9,11 +9,10 @@ import SubmitButton from "@/components/SubmitButton";
 import { createAction } from "@/app/actions";
 
 export default function NewInvoicePage() {
-  // Define the possible statuses as a TypeScript union type
-  type InvoiceStatus = "open" | "paid" | "void" | "uncollectible";
+    type InvoiceStatus = "open" | "paid" | "void" | "uncollectible";
 
   const [state, setState] = useState("ready");
-  const [status, setStatus] = useState<InvoiceStatus>("open"); // Status has a specific type
+  const [status, setStatus] = useState<InvoiceStatus>("open"); 
 
   async function handleOnSubmit(event: SyntheticEvent) {
     if (state === "pending") {
@@ -23,7 +22,6 @@ export default function NewInvoicePage() {
     setState("pending");
   }
 
-  // Explicit mapping for background colors
   const statusBgColors: Record<InvoiceStatus, string> = {
     open: "bg-blue-500",
     paid: "bg-green-600",
