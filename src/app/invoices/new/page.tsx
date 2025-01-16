@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import SubmitButton from "@/components/SubmitButton";
 import { createAction } from "@/app/actions";
+import Container from "@/components/Container";
 
 export default function NewInvoicePage() {
     type InvoiceStatus = "open" | "paid" | "void" | "uncollectible";
@@ -31,9 +32,10 @@ export default function NewInvoicePage() {
 
   return (
     <div className={`newinvoiceContainer ${statusBgColors[status]}`}>
-      <main className="flex flex-col justify-center h-full max-w-5xl mx-auto my-12">
+      <main className="h-full">
+        <Container>
         <div className="flex justify-between">
-          <h1 className="text-3xl font-bold text-left mb-5">Create Invoice</h1>
+          <h1 className="text-3xl font-bold text-left mb-6">Create Invoice</h1>
         </div>
 
         <Form action={createAction} onSubmit={handleOnSubmit} className="grid gap-4 w-6/12">
@@ -105,6 +107,7 @@ export default function NewInvoicePage() {
             <SubmitButton />
           </div>
         </Form>
+        </Container>
       </main>
     </div>
   );

@@ -87,5 +87,7 @@ body {
 .invoicepageContainer {
   background-color: #fff;
   color: #444;
-  padding: 50px;
+  width: 100%;
+  padding: 20px;
+ 
 }

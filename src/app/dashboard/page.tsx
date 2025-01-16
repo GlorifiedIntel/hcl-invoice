@@ -13,6 +13,7 @@ import {
   } from "@/components/ui/table";
   import { Badge } from "@/components/ui/badge";
   import { Button } from "@/components/ui/button";
+  import Container from '@/components/Container'
   import Link from 'next/link';
   import { cn } from "@/lib/utils"
 
@@ -22,10 +23,9 @@ import {
 export default async function DashboardPage() {
   const results = await db.select().from(Invoices);
   console.log('results', results)
-
-  return (
-    <div className="dashboardContainer">
-     <main className=" flex flex-col justify-center h-full text-center gap-6 max-w-5xl mx-auto my-12">
+ return (
+      <main className="h-full dashboardContainer">
+      <Container>
       <div className="flex justify-between">
       <h1 className="text-3xl font-bold text-left">
         Invoices
@@ -115,8 +115,8 @@ export default async function DashboardPage() {
   })}
   </TableBody>
 </Table>
-
+</Container>
 </main>
-</div>
+
 );
 }
