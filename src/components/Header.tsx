@@ -10,23 +10,26 @@ import {
 
 const Header = () => {
     return (
-      <Container>
-      <header className="mt-6 mb-8">
-        <div className="flex justify-between items-center gap-4">
-        <h1 className="text-3xl font-bold">
-          <Link href="/dashboard">Happiness Computer</Link>
-        </h1>
+      <header className="mt-8 mb-0 border-b border-gray-50 py-5">
+          <Container>
+          <div className="flex items-center justify-between gap-20 logo">
+           <Link href="/dashboard">
+            <img src="/hclogo.png" alt="Happiness Computer Logo" className="h-6 w-11" /><h1 className="text-3xl font-bold head-title">Happiness Computers</h1>
+              </Link>
+              
         <div>
         <SignedOut>
-            <SignInButton />
-          </SignedOut>
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
-        </div>
-        </div>
-    </header>
+          <SignInButton />
+        </SignedOut>
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
+      </div>
+    </div>
     </Container>
+  </header>
+
+
     );
   };
   

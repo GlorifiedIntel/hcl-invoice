@@ -28,8 +28,7 @@ export default function RootLayout({
   return (
     < ClerkProvider>
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen grid grid-rows-[auto_1fr_auto]`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen grid grid-rows-[auto_3fr_auto]`}>
         <Header />
         {children}
         <Footer />

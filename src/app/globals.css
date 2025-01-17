@@ -91,3 +91,31 @@ body {
   padding: 20px;
  
 }
+
+.head-title {
+  font-family: "Play", serif;
+  font-weight: 700;
+  font-style: normal;
+  display: inline;
+}
+
+.digit {
+  color: orange;
+  font-family: "Play", serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 35px;
+}
+
+.digit-2 {
+  color: rgb(241, 138, 65);
+  font-family: "Play", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.text-sm {
+  font-family: "Play", serif;
+  font-weight: 400;
+  font-style: normal;
+}

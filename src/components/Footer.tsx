@@ -3,7 +3,7 @@
 
 const Footer = () => {
     return (
-    <footer className="mt-8 mb-12">
+    <footer className="mt-12 mb-8">
     <Container className="flex justify-between gap-4">
       <p className="text-sm">
         Happiness Computers &copy; {new Date().getFullYear()}. All Rights Reserved.</p>
