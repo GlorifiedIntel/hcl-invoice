@@ -2,6 +2,7 @@
 
 import * as Clerk from '@clerk/elements/common'
 import * as SignIn from '@clerk/elements/sign-in'
+import {Button} from '@/components/ui/button'
 
 export default function SignInPage() {
   return (
@@ -22,7 +23,7 @@ export default function SignInPage() {
            >
              <path d="M2.5 2A1.5 1.5 0 0 0 1 3.5V12h14V3.5A1.5 1.5 0 0 0 13.5 2zM0 12.5h16a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5"></path>
            </svg>
-            <h1 className="mt-4 text-xl font-medium tracking-tight text-neutral-950">
+            <h1 className="mt-4 text-xl font-medium tracking-tight text-neutral-700">
               Sign in to Happiness Computers Invoice
             </h1>
           </header>
@@ -39,9 +40,11 @@ export default function SignInPage() {
           </Clerk.Field>
           <SignIn.Action
             submit
-            className="relative w-full rounded-md bg-neutral-600 bg-gradient-to-b from-neutral-500 to-neutral-600 py-1.5 text-sm font-medium text-white shadow-[0_1px_1px_0_theme(colors.white/10%)_inset,0_1px_2.5px_0_theme(colors.black/36%)] outline-none ring-1 ring-inset ring-neutral-600 before:absolute before:inset-0 before:rounded-md before:bg-white/10 before:opacity-0 hover:before:opacity-100 focus-visible:outline-offset-2 focus-visible:outline-neutral-600 active:bg-neutral-600 active:text-white/60 active:before:opacity-0"
+            asChild
           >
+            <Button className="w-full font-bold">
             Sign In
+            </Button>
           </SignIn.Action>
           <div className="rounded-xl bg-neutral-100 p-5">
             <p className="mb-4 text-center text-sm/5 text-neutral-500">
