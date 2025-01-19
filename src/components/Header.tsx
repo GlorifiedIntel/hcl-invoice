@@ -10,7 +10,7 @@ import {
 
 const Header = () => {
     return (
-      <header className="mt-8 mb-0 border-b border-gray-50 py-5">
+      <header className="mt-8 mb-0 border-b pb-12">
           <Container>
           <div className="flex items-center justify-between gap-20 logo">
            <Link href="/dashboard">
