@@ -18,9 +18,9 @@ export default function NewInvoicePage() {
   const companyInfo = {
     name: "Happiness Computers Limited",
     logoUrl: "/hclogo.png", 
-    address: "1234 Business St, City, Country",
-    phoneNumber: "+1234567890",
-    email: "info@company.com",
+    address: "Suite 15 & 22, Zone 3 Shooping Complex, Wuse, Abuja",
+    phoneNumber: "08036046736; 08032949083",
+    email: "happinesscomputer2020@gmail.com",
   };
 
   async function handleOnSubmit(event: SyntheticEvent) {

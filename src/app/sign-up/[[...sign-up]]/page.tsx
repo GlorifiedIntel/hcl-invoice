@@ -33,7 +33,7 @@ export default function SignUpPage() {
               <Clerk.Input
                 type="email"
                 required
-                className="w-full rounded-md bg-white px-3.5 py-2 text-sm outline-none ring-1 ring-inset ring-zinc-300 hover:ring-zinc-400 focus:ring-[1.5px] focus:ring-zinc-950 data-[invalid]:ring-red-400"
+                className="w-full rounded-md bg-white px-3.5 py-2 text-sm text-zinc-900 outline-none ring-1 ring-inset ring-zinc-300 hover:ring-zinc-400 focus:ring-[1.5px] focus:ring-zinc-950 data-[invalid]:ring-red-400"
               />
               <Clerk.FieldError className="block text-sm text-red-400" />
             </Clerk.Field>
@@ -42,7 +42,7 @@ export default function SignUpPage() {
               <Clerk.Input
                 type="password"
                 required
-                className="w-full rounded-md bg-white px-3.5 py-2 text-sm outline-none ring-1 ring-inset ring-zinc-300 hover:ring-zinc-400 focus:ring-[1.5px] focus:ring-zinc-950 data-[invalid]:ring-red-400"
+                className="w-full rounded-md bg-white px-3.5 py-2 text-sm text-zinc-900 outline-none ring-1 ring-inset ring-zinc-300 hover:ring-zinc-400 focus:ring-[1.5px] focus:ring-zinc-950 data-[invalid]:ring-red-400"
               />
               <Clerk.FieldError className="block text-sm text-red-400" />
             </Clerk.Field>
@@ -89,7 +89,7 @@ export default function SignUpPage() {
               <Clerk.Input
                 type="otp"
                 required
-                className="w-full rounded-md bg-white px-3.5 py-2 text-sm outline-none ring-1 ring-inset ring-zinc-300 hover:ring-zinc-400 focus:ring-[1.5px] focus:ring-zinc-950 data-[invalid]:ring-red-400"
+                className="w-full rounded-md bg-white px-3.5 py-2 text-sm text-zinc-900 outline-none ring-1 ring-inset ring-zinc-300 hover:ring-zinc-400 focus:ring-[1.5px] focus:ring-zinc-950 data-[invalid]:ring-red-400"
               />
               <Clerk.FieldError className="block text-sm text-red-400" />
             </Clerk.Field>
@@ -134,7 +134,7 @@ export default function SignUpPage() {
             <Clerk.Input
               type="text"
               required
-              className="w-full rounded-md bg-white px-3.5 py-2 text-sm outline-none ring-1 ring-inset ring-zinc-300 hover:ring-zinc-400 focus:ring-[1.5px] focus:ring-zinc-950 data-[invalid]:ring-red-400"
+              className="w-full rounded-md bg-white px-3.5 py-2 text-sm text-zinc-900 outline-none ring-1 ring-inset ring-zinc-300 hover:ring-zinc-400 focus:ring-[1.5px] focus:ring-zinc-950 data-[invalid]:ring-red-400"
             />
             <Clerk.FieldError className="block text-sm text-red-400" />
           </Clerk.Field>

@@ -1,11 +1,27 @@
 import { notFound } from 'next/navigation';
-import { eq } from "drizzle-orm";
+import { eq, and } from "drizzle-orm";
+import { auth } from '@clerk/nextjs/server';
 import { db } from '@/db';
 import { Invoices } from '@/db/schema';
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import Container from '@/components/Container';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import { Button } from "@/components/ui/button";
+import { AVAILABLE_STATUSES } from '@/data/invoices';
+import { updateStatusAction } from '@/app/actions';
 
 export default async function InvoicePage({ params }: { params: { invoiceId: string } }) {
+  const { userId } = await auth();
+  
+  if (!userId) {
+    return;
+  }
   const resolvedParams = await params;
   const invoiceId = parseInt(resolvedParams.invoiceId, 10);
   
@@ -15,7 +31,12 @@ export default async function InvoicePage({ params }: { params: { invoiceId: str
 
   const [result] = await db.select()
     .from(Invoices)
-    .where(eq(Invoices.id, invoiceId))
+    .where(
+      and(
+      eq(Invoices.id, invoiceId),
+      eq(Invoices.userId, userId)
+   ))
+     
     .limit(1);
 
   if (!result) {
@@ -33,27 +54,28 @@ export default async function InvoicePage({ params }: { params: { invoiceId: str
 
   return (
     <div className="invoicepageContainer">
-      <main className="h-full max-w-5xl mx-auto my-12">
+      <main className="h-full">
+        <Container>
       <div className="flex flex-col items-center text-center mb-12">
         
-  {/* Company Info Display */}
-  <img src={companyInfo.logoUrl} alt="Company Logo" className="h-12 mb-4" />
-  <h1 className="text-3xl font-bold mb-4">Happiness Computers Ltd.</h1>
-    <ul className="space-y-0">
-    <li className="flex justify-center gap-4">
-      <strong className="font-medium text-sm">Address:</strong>
-      <span>{companyInfo.address}</span>
-    </li>
-    <li className="flex justify-center gap-4">
-      <strong className="font-medium text-sm">Phone:</strong>
-      <span>{companyInfo.phoneNumber}</span>
-    </li>
-    <li className="flex justify-center gap-4">
-      <strong className="font-medium text-sm">Email:</strong>
-      <span>{companyInfo.email}</span>
-    </li>
-  </ul>
-</div>
+              {/* Company Info Display */}
+              <img src={companyInfo.logoUrl} alt="Company Logo" className="h-12 mb-4" />
+              <h1 className="text-3xl font-bold mb-4">Happiness Computers Ltd.</h1>
+                <ul className="space-y-0">
+                <li className="flex justify-center gap-4">
+                  <strong className="font-medium text-sm">Address:</strong>
+                  <span>{companyInfo.address}</span>
+                </li>
+                <li className="flex justify-center gap-4">
+                  <strong className="font-medium text-sm">Phone:</strong>
+                  <span>{companyInfo.phoneNumber}</span>
+                </li>
+                <li className="flex justify-center gap-4">
+                  <strong className="font-medium text-sm">Email:</strong>
+                  <span>{companyInfo.email}</span>
+                </li>
+              </ul>
+            </div>
 
         <div className="flex justify-between mb-8">
          <h1 className="flex items-center gap-3 text-3xl font-bold text-left">
@@ -66,7 +88,23 @@ export default async function InvoicePage({ params }: { params: { invoiceId: str
               result.status === 'uncollectible' && 'bg-red-600'
             )}>{result.status}</Badge>
           </h1>
-        </div>
+          <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline">Change Status</Button>
+                </DropdownMenuTrigger>
+              <DropdownMenuContent>
+              {AVAILABLE_STATUSES.map(status => {
+                 return (
+                <DropdownMenuItem key={status.id}>
+                  <form action={updateStatusAction}>
+                  <input type="hidden" name="id" value={invoiceId} />
+                  <input type="hidden" name="status" value={status.id} />
+                 <button>{status.label}</button>
+                 </form>
+                 </DropdownMenuItem>)})}
+             </DropdownMenuContent>
+            </DropdownMenu>
+      </div>
 
         <p className="text-3xl mb-3">
           &#8358;{(result.amount / 100).toFixed(2)}
@@ -107,6 +145,7 @@ export default async function InvoicePage({ params }: { params: { invoiceId: str
             <span>{result.billingAddress}</span>
           </li>
        </ul>
+       </Container>
       </main>
     </div>
   );
